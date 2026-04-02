@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Life Styles™ — DUNKSOFT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="common.css">
+<style>
+.eco-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 10px; }
+.arch-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+.arch-card { background: var(--bg2); border: 0.5px solid var(--border); border-radius: var(--r); padding: 1.25rem; }
+.arch-title { font-size: 13px; font-weight: 500; display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.dot-list { display: flex; flex-direction: column; gap: 7px; }
+.dot-item { display: flex; gap: 8px; align-items: flex-start; font-size: 12px; color: var(--text2); line-height: 1.45; }
+.dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+.base-layer { background: var(--bg2); border: 0.5px solid var(--border); border-radius: var(--r); padding: 1.25rem; }
+.base-title { font-size: 11px; color: var(--text3); text-align: center; margin-bottom: 10px; letter-spacing: 0.5px; }
+.base-grid4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; }
+.base-item { background: var(--bg); border: 0.5px solid var(--border); border-radius: 8px; padding: 10px; text-align: center; }
+.base-item strong { display: block; font-size: 12px; font-weight: 500; margin-bottom: 3px; }
+.base-item span { font-size: 10px; color: var(--text2); line-height: 1.4; }
+.reg { display: inline-block; font-size: 9px; background: var(--green-l); color: var(--green); border: 0.5px solid var(--green); border-radius: 3px; padding: 0 4px; margin-top: 4px; }
+.arrow-sep { text-align: center; color: var(--text3); font-size: 12px; padding: 6px 0; display: flex; align-items: center; justify-content: center; gap: 8px; }
+.existing-marks { display: flex; flex-wrap: wrap; gap: 6px; }
+.mark-pill { font-size: 11px; background: var(--bg2); border: 0.5px solid var(--border); border-radius: 20px; padding: 4px 12px; color: var(--text2); }
+@media(max-width:600px){ .eco-grid,.arch-row { grid-template-columns:1fr; } .base-grid4{ grid-template-columns:1fr 1fr; } }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-logo">
+    <img src="data:image/png;base64,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" alt="DUNKSOFT®" onerror="this.style.display='none'">
+    <span class="nav-logo-text">Smart Life Styles<sup>™</sup></span>
+  </div>
+  <div class="nav-links">
+    <a href="index.html" class="active">概要</a>
+    <a href="colourful.html">色彩日本語</a>
+    <a href="vickey.html">Vickey</a>
+    <a href="books.html">図書コミュニティ</a>
+    <a href="market.html">市場・収益</a>
+  </div>
+  <span class="nav-date">2026.04</span>
+</nav>
+
+<div class="hero">
+  <p class="hero-eyebrow">DUNKSOFT Co., Ltd. — Ecosystem Overview</p>
+  <h1 class="hero-title">
+    Smart Life Styles<sup>™</sup><br>
+    <strong>全体像</strong>
+  </h1>
+  <p class="hero-sub">
+    色彩日本語 ルビColourful JAPAN<span class="badge badge-teal">TM</span><span class="badge badge-green">特許出願中</span>を中核とした、
+    若者の成長と長期投資を支えるエコシステム。3つのプロジェクトが連携し、人的・金融・文化資本を複利成長させる仕組み。
+  </p>
+</div>
+
+<div class="section">
+  <p class="section-label">Core Projects — クリックで詳細へ</p>
+
+  <div class="eco-grid">
+    <a href="colourful.html" class="link-card">
+      <div class="link-card-bar" style="background:var(--teal)"></div>
+      <span class="link-card-icon">🎨</span>
+      <div class="link-card-title">色彩日本語<br>ルビColourful JAPAN</div>
+      <div class="link-card-en">中核事業 / T261024</div>
+      <div class="link-card-desc">漢字・ルビ・色彩を統合した日本語意味体系。教育・文化発信・デジタルコンテンツへ応用。</div>
+      <span class="link-card-arrow">↗</span>
+    </a>
+
+    <a href="vickey.html" class="link-card">
+      <div class="link-card-bar" style="background:var(--amber)"></div>
+      <span class="link-card-icon">💰</span>
+      <div class="link-card-title">Vickey<br>ビッキー・マネ</div>
+      <div class="link-card-en">Financial Literacy / T261012</div>
+      <div class="link-card-desc">若者向け金融リテラシー教育。長期投資・資産形成の習慣を楽しく身につける。</div>
+      <span class="link-card-arrow">↗</span>
+    </a>
+
+    <a href="books.html" class="link-card">
+      <div class="link-card-bar" style="background:var(--purple)"></div>
+      <span class="link-card-icon">📚</span>
+      <div class="link-card-title">図書分類<br>コミュニティ</div>
+      <div class="link-card-en">Book Community / T261018</div>
+      <div class="link-card-desc">色彩日本語の分類体系を活用した図書コミュニティ。継続学習と知的ネットワーク形成。</div>
+      <span class="link-card-arrow">↗</span>
+    </a>
+  </div>
+
+  <div class="arrow-sep"><span>3つが連携し</span><span style="font-size:16px">↓</span></div>
+
+  <div class="arch-row">
+    <div class="arch-card">
+      <div class="arch-title"><span>🌱</span> 長期投資 × 若者成長の仕組み</div>
+      <div class="dot-list">
+        <div class="dot-item"><div class="dot" style="background:var(--amber)"></div><span>Vickeyで金融知識を若いうちから習得し資産形成の基礎を構築</span></div>
+        <div class="dot-item"><div class="dot" style="background:var(--purple)"></div><span>図書コミュニティで継続学習習慣と知的ネットワークを育む</span></div>
+        <div class="dot-item"><div class="dot" style="background:var(--teal)"></div><span>色彩日本語で言語・文化的知性を育みグローバル視野を獲得</span></div>
+        <div class="dot-item"><div class="dot" style="background:var(--blue)"></div><span>3つの柱が相互補完し、複利的に成長</span></div>
+      </div>
+    </div>
+    <div class="arch-card">
+      <div class="arch-title"><span>✨</span> Smart Life Styles™ — 統合ハブ</div>
+      <div class="dot-list">
+        <div class="dot-item"><div class="dot" style="background:var(--teal)"></div><span>3プロジェクトの統合ハブ。成長ジャーニーを一元管理・可視化</span></div>
+        <div class="dot-item"><div class="dot" style="background:var(--amber)"></div><span>学び・投資・文化の記録をポートフォリオとして蓄積</span></div>
+        <div class="dot-item"><div class="dot" style="background:var(--purple)"></div><span>コミュニティ間の橋渡し。共通価値観でつながる</span></div>
+        <div class="dot-item"><div class="dot" style="background:var(--blue)"></div><span>WEB / アプリ経由。第42類サービス群を統合</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow-sep"><span>これらを支える基盤</span><span style="font-size:16px">↓</span></div>
+
+  <div class="base-layer">
+    <div class="base-title">認証・技術基盤 — DUNKSOFT® デジタルインフラ（第42類）</div>
+    <div class="base-grid4">
+      <div class="base-item"><strong>認証システム</strong><span>ユーザーID統合・信頼性保証</span></div>
+      <div class="base-item"><strong>クラウド基盤</strong><span>仮想コンピュータ・ウェブサーバー</span></div>
+      <div class="base-item"><strong>WeCARee！</strong><span>コミュニティケア・相互支援</span><br><span class="reg">登録済</span></div>
+      <div class="base-item"><strong>Digital Re-Creation</strong><span>デジタル再創造基盤</span><br><span class="reg">登録済</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <p class="section-label">Trademark Assets — 商標資産</p>
+  <div class="stat-row">
+    <div class="stat"><div class="stat-num">10</div><div class="stat-lbl">登録商標</div></div>
+    <div class="stat"><div class="stat-num">4</div><div class="stat-lbl">出願中商標</div></div>
+    <div class="stat"><div class="stat-num">2026</div><div class="stat-lbl">エコシステム始動</div></div>
+  </div>
+  <div class="existing-marks">
+    <span class="mark-pill">時間は人生のために</span>
+    <span class="mark-pill">Love your life, Love your time.</span>
+    <span class="mark-pill">DUNKSOFT／ダンクソフト</span>
+    <span class="mark-pill">未来かんり</span>
+    <span class="mark-pill">未来通帳</span>
+    <span class="mark-pill">バザールバザール</span>
+    <span class="mark-pill">DUNKSOFT Digital Re-Creation</span>
+    <span class="mark-pill">インターネットにあらゆるものをのせていく</span>
+    <span class="mark-pill">インターネットによりよいものものをのせていく</span>
+    <span class="mark-pill">WeCARee！</span>
+  </div>
+</div>
+
+<div class="section">
+  <p class="section-label">Market — 市場規模・収益モデル</p>
+  <p style="font-size:13px; color:var(--text2); margin-bottom:1rem;">
+    出版・図書館、金融・NISA教育、成長物語×地域金融の3ゾーンが交差する場所に新しい価値が生まれます。
+  </p>
+  <a href="market.html" class="link-card" style="display:flex; align-items:center; justify-content:space-between; padding:1.25rem 1.5rem;">
+    <div>
+      <div style="font-size:13px; font-weight:500; margin-bottom:3px;">市場規模 & 収益モデルの詳細</div>
+      <div style="font-size:12px; color:var(--text2);">3ゾーン統合 / フェーズ別試算 / 収益構造</div>
+    </div>
+    <span style="font-size:18px; color:var(--text3);">→</span>
+  </a>
+</div>
+
+<div class="footer">
+  <p>Smart Life Styles™ — DUNKSOFT Co., Ltd. 株式会社ダンクソフト</p>
+  <p style="margin-top:4px;">天然色漢字INDEX™ · COLORFUL KANJI INDEX® · VICKEY PROJECT · 2026</p>
+  <p style="margin-top:8px;"><a href="https://robertohoshino.github.io/kanji-index/tokushima-godo-proposal" style="color:var(--text3); font-size:10px; border-bottom: 0.5px solid var(--border);">徳島合同証券 提案書 →</a></p>
+</div>
+
+</body>
+</html>

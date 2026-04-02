@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>図書分類コミュニティ — Smart Life Styles™</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="common.css">
+<style>
+.color-shelf { display: grid; grid-template-columns: repeat(6,1fr); gap: 6px; margin: 1.5rem 0; }
+.shelf-col { display: flex; flex-direction: column; gap: 4px; align-items: center; }
+.shelf-bar { width: 100%; height: 80px; border-radius: 4px; display: flex; align-items: flex-end; padding: 6px; }
+.shelf-label { font-size: 10px; color: var(--text2); text-align: center; }
+.shelf-kanji { font-size: 20px; font-weight: 300; }
+
+.triangle {
+  background: var(--bg2); border: 0.5px solid var(--border);
+  border-radius: var(--r); padding: 1.5rem; margin: 1.5rem 0; text-align: center;
+}
+.tri-title { font-size: 13px; font-weight: 500; margin-bottom: 1.25rem; }
+.tri-diagram { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; align-items: center; }
+.tri-node { background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--r); padding: 1rem; text-align: center; }
+.tri-icon { font-size: 22px; margin-bottom: 5px; }
+.tri-name { font-size: 13px; font-weight: 500; }
+.tri-sub { font-size: 10px; color: var(--text3); margin-top: 2px; }
+.tri-arrows { display: flex; flex-direction: column; gap: 4px; align-items: center; justify-content: center; font-size: 22px; color: var(--text3); }
+
+.pub-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.pub-card { background: var(--bg2); border: 0.5px solid var(--border); border-radius: var(--r); padding: 1rem; text-align: center; }
+.pub-name { font-size: 13px; font-weight: 500; margin-bottom: 3px; }
+.pub-count { font-size: 11px; color: var(--text2); }
+
+.community-link {
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--purple-l); border: 0.5px solid var(--purple);
+  border-radius: var(--r); padding: 1rem 1.25rem;
+  text-decoration: none; color: var(--purple-d); transition: opacity 0.15s; margin-bottom:8px;
+}
+.community-link:hover { opacity: 0.8; }
+
+@media(max-width:600px){ .color-shelf{grid-template-columns:repeat(3,1fr);} .pub-grid{grid-template-columns:1fr 1fr;} .tri-diagram{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-logo">
+    <img src="data:image/png;base64,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" alt="DUNKSOFT®" onerror="this.style.display='none'">
+    <span class="nav-logo-text">Smart Life Styles<sup>™</sup></span>
+  </div>
+  <div class="nav-links">
+    <a href="index.html">概要</a>
+    <a href="colourful.html">色彩日本語</a>
+    <a href="vickey.html">Vickey</a>
+    <a href="books.html" class="active">図書コミュニティ</a>
+    <a href="market.html">市場・収益</a>
+  </div>
+  <span class="nav-date">2026.04</span>
+</nav>
+
+<div class="hero">
+  <a href="index.html" class="back-link">← Smart Life Styles™ 概要へ</a>
+  <p class="hero-eyebrow">Core Project 03 — Book Classification Community</p>
+  <h1 class="hero-title">
+    図書分類<br>
+    <strong>コミュニティ</strong>
+  </h1>
+  <p class="hero-sub">
+    色彩日本語の分類体系を活用した知識コミュニティ。
+    <span class="badge badge-purple">T261018</span>
+    <span class="badge badge-purple">天然色漢字INDEX</span>
+    <br>本・著者・企業を「色」でつなぎ、継続的な学習習慣と知的ネットワークを形成する。
+  </p>
+</div>
+
+<div class="section">
+  <p class="section-label">Colour Shelf — 色の本棚</p>
+  <div class="color-shelf">
+    <div class="shelf-col">
+      <div class="shelf-bar" style="background:rgba(29,158,117,0.15); border:0.5px solid var(--teal)">
+        <span class="shelf-kanji" style="color:var(--teal)">経</span>
+      </div>
+      <div class="shelf-label">経済・経営</div>
+    </div>
+    <div class="shelf-col">
+      <div class="shelf-bar" style="background:rgba(186,117,23,0.15); border:0.5px solid var(--amber)">
+        <span class="shelf-kanji" style="color:var(--amber)">長</span>
+      </div>
+      <div class="shelf-label">成長・長期</div>
+    </div>
+    <div class="shelf-col">
+      <div class="shelf-bar" style="background:rgba(83,74,183,0.15); border:0.5px solid var(--purple)">
+        <span class="shelf-kanji" style="color:var(--purple)">育</span>
+      </div>
+      <div class="shelf-label">教育・育成</div>
+    </div>
+    <div class="shelf-col">
+      <div class="shelf-bar" style="background:rgba(24,95,165,0.15); border:0.5px solid var(--blue)">
+        <span class="shelf-kanji" style="color:var(--blue)">投</span>
+      </div>
+      <div class="shelf-label">投資・金融</div>
+    </div>
+    <div class="shelf-col">
+      <div class="shelf-bar" style="background:rgba(59,109,17,0.15); border:0.5px solid var(--green)">
+        <span class="shelf-kanji" style="color:var(--green)">自</span>
+      </div>
+      <div class="shelf-label">自然・SDGs</div>
+    </div>
+    <div class="shelf-col">
+      <div class="shelf-bar" style="background:rgba(153,60,29,0.15); border:0.5px solid var(--coral)">
+        <span class="shelf-kanji" style="color:var(--coral)">物</span>
+      </div>
+      <div class="shelf-label">物語・創造</div>
+    </div>
+  </div>
+  <p style="font-size:13px; color:var(--text2); line-height:1.7;">
+    書店での「偶然の出会い」をデジタルで再現。ジャンルや難易度を「色」で表現することで、
+    外国語話者・こども・シニアが同じ画面で直感的に本棚をナビゲートできる。
+  </p>
+</div>
+
+<div class="section">
+  <p class="section-label">Knowledge Triangle — 知識の三角形</p>
+  <div class="triangle">
+    <div class="tri-title">3プロジェクトが形成する「複利成長の三角形」</div>
+    <div class="tri-diagram">
+      <div class="tri-node">
+        <div class="tri-icon">📚</div>
+        <div class="tri-name">図書コミュニティ</div>
+        <div class="tri-sub">知識体系化・読書習慣</div>
+      </div>
+      <div class="tri-arrows">
+        <span>⟷</span>
+        <span style="font-size:11px; color:var(--text3);">相互強化</span>
+        <span>⟷</span>
+      </div>
+      <div class="tri-node">
+        <div class="tri-icon">💰</div>
+        <div class="tri-name">Vickey</div>
+        <div class="tri-sub">金融リテラシー・投資習慣</div>
+      </div>
+    </div>
+    <div style="text-align:center; font-size:22px; color:var(--text3); margin:8px 0;">↕</div>
+    <div style="max-width:280px; margin:0 auto;">
+      <div class="tri-node">
+        <div class="tri-icon">🎨</div>
+        <div class="tri-name">色彩日本語</div>
+        <div class="tri-sub">言語・文化的知性・グローバル視野</div>
+      </div>
+    </div>
+    <div style="font-size:12px; color:var(--text2); margin-top:1rem; line-height:1.6;">
+      それぞれの深度が増すほど、他の2つへの理解も深まる複利効果。<br>
+      「自分の成長物語 ＝ 資産の成長物語」という等式を体験させる。
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <p class="section-label">Publisher Partners — 出版社パートナー</p>
+  <div class="pub-grid">
+    <div class="pub-card"><div class="pub-name">早川書房</div><div class="pub-count">SFと海外文学の旗手</div></div>
+    <div class="pub-card"><div class="pub-name">集英社</div><div class="pub-count">マンガ・文芸の総合出版</div></div>
+    <div class="pub-card"><div class="pub-name">講談社</div><div class="pub-count">国内最大規模の出版社</div></div>
+    <div class="pub-card"><div class="pub-name">小学館</div><div class="pub-count">教育・総合出版</div></div>
+    <div class="pub-card"><div class="pub-name">岩波書店</div><div class="pub-count">学術・思想の老舗</div></div>
+    <div class="pub-card"><div class="pub-name">新潮社</div><div class="pub-count">文学・ノンフィクション</div></div>
+  </div>
+  <p style="font-size:12px; color:var(--text2); margin-top:8px;">+ 三省堂書店 ハブとしてのパイロット展開予定</p>
+</div>
+
+<div class="section">
+  <p class="section-label">Market Scale — 市場規模</p>
+  <div class="stat-row">
+    <div class="stat"><div class="stat-num">約3,300</div><div class="stat-lbl">全国図書館数</div></div>
+    <div class="stat"><div class="stat-num">約7,270</div><div class="stat-lbl">全国書店数</div></div>
+    <div class="stat"><div class="stat-num">年7万点</div><div class="stat-lbl">出版社 新刊点数</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <p class="section-label">Demo — 稼働中デモ</p>
+  <a href="https://robertohoshino.github.io/kanji-index/" class="community-link" target="_blank">
+    <div>
+      <div style="font-size:13px; font-weight:500;">出版社別インデックスデモ（公開中）</div>
+      <div style="font-size:11px; margin-top:2px; opacity:0.8;">6出版社の書籍を漢字タグで横断検索。書店での「偶然の出会い」をデジタルで再現</div>
+    </div>
+    <span style="font-size:18px;">↗</span>
+  </a>
+</div>
+
+<div class="footer">
+  <p>図書分類コミュニティ — Smart Life Styles™ — DUNKSOFT Co., Ltd.</p>
+  <p style="margin-top:4px; font-size:10px; color:var(--text3);">© 2026 株式会社ダンクソフト. All rights reserved.</p>
+</div>
+
+</body>
+</html>
