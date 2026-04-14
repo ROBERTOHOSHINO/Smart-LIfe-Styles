@@ -55,154 +55,6 @@
 .region-label { font-size: 12px; font-weight: 500; margin-bottom: 3px; }
 .region-desc { font-size: 10px; color: var(--text2); line-height: 1.45; }
 
-/* Philosophy card */
-.phil-card {
-  padding: 2rem 1.75rem;
-  border: 0.5px solid var(--border);
-  border-radius: var(--r);
-  background: var(--bg2);
-  position: relative;
-  overflow: hidden;
-}
-.phil-card::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, #1D9E75 0%, #EF9F27 50%, #7F77DD 100%);
-}
-.phil-brand {
-  font-size: 11px; font-weight: 500; letter-spacing: 1px;
-  color: var(--text3); text-transform: uppercase; margin-bottom: 0.75rem;
-}
-.phil-divider-line {
-  width: 28px; height: 1px; background: var(--border); margin-bottom: 1.25rem;
-}
-.phil-main {
-  font-size: 22px; font-weight: 300; line-height: 1.5;
-  letter-spacing: -0.5px; color: var(--text1); margin-bottom: 1rem;
-}
-.phil-main strong { font-weight: 500; }
-.phil-sub {
-  font-size: 12px; color: var(--text2); line-height: 1.8; margin-bottom: 1.5rem;
-}
-.phil-kanji-row {
-  display: grid; grid-template-columns: auto 1fr; gap: 1.25rem;
-  align-items: center; margin-bottom: 1.5rem;
-}
-.phil-kanji-block {
-  border-left: 2px solid #EF9F27; padding: 0.75rem 1rem;
-  background: var(--bg); border-radius: 0 8px 8px 0;
-}
-.phil-kanji {
-  font-size: 44px; font-weight: 300; line-height: 1;
-  color: var(--text1); margin-bottom: 4px;
-}
-.phil-kanji-readings {
-  font-size: 10px; letter-spacing: 1.5px; color: var(--text3); margin-bottom: 3px;
-}
-.phil-kanji-meaning {
-  font-size: 11px; color: var(--text2); line-height: 1.6;
-}
-.phil-tagline {
-  font-size: 16px; font-weight: 300; line-height: 1.6;
-  color: var(--text1); padding-left: 1rem;
-}
-.phil-accent { font-weight: 500; color: #BA7517; }
-.phil-flow {
-  display: flex; align-items: center; flex-wrap: wrap; gap: 6px;
-}
-.phil-node {
-  font-size: 11px; padding: 4px 10px; border-radius: 20px;
-  border: 0.5px solid var(--border); color: var(--text2);
-  background: var(--bg); white-space: nowrap;
-}
-.phil-node-play {
-  border-color: #EF9F27; color: #633806; background: #FAEEDA; font-weight: 500;
-}
-.phil-arr { font-size: 12px; color: var(--text3); }
-@media(max-width:600px){
-  .phil-kanji-row { grid-template-columns: 1fr; }
-  .phil-main { font-size: 18px; }
-}
-
-/* SMA — Sports / Music / Art side story */
-.sma-section {
-  margin-top: 2.5rem;
-  padding: 1.5rem 1.5rem 1.25rem;
-  background: var(--bg2);
-  border: 0.5px solid var(--border);
-  border-radius: var(--r);
-  position: relative;
-  overflow: hidden;
-}
-.sma-section::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: linear-gradient(135deg,
-    rgba(251,191,36,0.06) 0%,
-    rgba(99,102,241,0.06) 50%,
-    rgba(16,185,129,0.06) 100%);
-  pointer-events: none;
-}
-.sma-eyebrow {
-  font-size: 10px; font-weight: 500; letter-spacing: 1.5px;
-  text-transform: uppercase; color: var(--text3); margin-bottom: 6px;
-}
-.sma-headline {
-  font-size: 15px; font-weight: 500; margin-bottom: 4px;
-}
-.sma-sub {
-  font-size: 12px; color: var(--text2); line-height: 1.6; margin-bottom: 1.25rem;
-}
-.sma-pillars {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
-}
-.sma-pillar {
-  border-radius: 10px; padding: 1rem;
-  border: 0.5px solid var(--border);
-  background: var(--bg);
-  position: relative; overflow: hidden;
-}
-.sma-pillar-sport { border-color: rgba(16,185,129,0.4); }
-.sma-pillar-music { border-color: rgba(99,102,241,0.4); }
-.sma-pillar-art   { border-color: rgba(251,191,36,0.4); }
-.sma-icon {
-  font-size: 22px; margin-bottom: 6px;
-}
-.sma-pillar-title {
-  font-size: 13px; font-weight: 500; margin-bottom: 5px;
-}
-.sma-pillar-sport .sma-pillar-title { color: rgb(16,185,129); }
-.sma-pillar-music .sma-pillar-title { color: rgb(99,102,241); }
-.sma-pillar-art   .sma-pillar-title { color: rgb(201,155,20); }
-.sma-pillar-body {
-  font-size: 11px; color: var(--text2); line-height: 1.6; margin-bottom: 8px;
-}
-.sma-tags {
-  display: flex; flex-wrap: wrap; gap: 4px;
-}
-.sma-tag {
-  font-size: 10px; padding: 2px 7px; border-radius: 20px;
-  border: 0.5px solid var(--border); color: var(--text3); background: var(--bg2);
-}
-.sma-connect {
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 0.5px solid var(--border);
-  font-size: 12px; color: var(--text2); line-height: 1.7;
-}
-.sma-connect strong { color: var(--text1); font-weight: 500; }
-.sma-connect-flow {
-  display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin-top: 8px;
-}
-.sma-flow-node {
-  font-size: 11px; padding: 4px 10px;
-  border-radius: 20px; border: 0.5px solid var(--border);
-  background: var(--bg); white-space: nowrap;
-}
-.sma-flow-arrow {
-  font-size: 12px; color: var(--text3);
-}
-
 @media(max-width:600px){
   .rev-row { grid-template-columns: 1fr 1fr; }
   .rev-row > *:nth-child(3), .rev-row > *:nth-child(4) { display: none; }
@@ -210,7 +62,6 @@
   .partner-grid { grid-template-columns: 1fr; }
   .region-flow { grid-template-columns: 1fr; }
   .zone-grid { grid-template-columns: 1fr; }
-  .sma-pillars { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -277,7 +128,6 @@
         地方証券 約200社<br>
         信用金庫 約250機関<br>
         徳島合同証券パイロット<br>
-        スポーツ・音楽・アート連携<br>
         VICKEYキャラクター活用
       </div>
       <div class="zone-rev" style="color:var(--amber)">短期 1〜2億円 / 年</div>
@@ -358,7 +208,7 @@
         地域証券50社展開<br>
         学校教育・J-FLEC連携<br>
         BtoCアプリ本格開始<br>
-        証券業協会 全国展開スキーム
+        商工会・地銀・ロータリー連携
       </div>
     </div>
     <div class="road-item" style="border: 0.5px solid var(--amber);">
@@ -403,86 +253,6 @@
 </div>
 
 <div class="section">
-  <p class="section-label">Side Story — 成長物語の3つの軸</p>
-  <div class="sma-section">
-    <div class="sma-eyebrow">Sports × Music × Art — サイドストーリー</div>
-    <div class="sma-headline">本・金融だけじゃない。スポーツ・音楽・アートが成長物語をカラフルにする</div>
-    <div class="sma-sub">
-      Zone 3「成長物語 × 地域金融」の核心にあるのは、子どもや若者がさまざまな体験を通じて自分の物語を紡ぐこと。
-      スポーツで培う挑戦と継続、音楽で育む表現と共鳴、アートで磨く観察と創造——
-      この3軸が漢字・色・AIと交差することで、Smart Life Stylesの物語はより豊かになります。
-    </div>
-
-    <div class="sma-pillars">
-
-      <div class="sma-pillar sma-pillar-sport">
-        <div class="sma-icon">⚽</div>
-        <div class="sma-pillar-title">Sports — 挑戦と継続</div>
-        <div class="sma-pillar-body">
-          地域のスポーツクラブ・部活動と連携。目標を立て、記録し、振り返る——その習慣がNISAの「長期・積立」の哲学と重なる。
-          地元チームを応援しながら「応援する力が地域を育てる」を体験する。
-        </div>
-        <div class="sma-tags">
-          <span class="sma-tag">地域クラブ</span>
-          <span class="sma-tag">目標管理</span>
-          <span class="sma-tag">長期思考</span>
-          <span class="sma-tag">応援×投資</span>
-        </div>
-      </div>
-
-      <div class="sma-pillar sma-pillar-music">
-        <div class="sma-icon">🎵</div>
-        <div class="sma-pillar-title">Music — 表現と共鳴</div>
-        <div class="sma-pillar-body">
-          バンド・合唱・和楽器など多様な音楽体験を漢字インデックスで記録。
-          「音」「響」「奏」——文字の意味と音の世界が交差する。地域の音楽フェスや発表会が、コミュニティをつなぐ場になる。
-        </div>
-        <div class="sma-tags">
-          <span class="sma-tag">和楽器</span>
-          <span class="sma-tag">漢字×音</span>
-          <span class="sma-tag">地域フェス</span>
-          <span class="sma-tag">表現力</span>
-        </div>
-      </div>
-
-      <div class="sma-pillar sma-pillar-art">
-        <div class="sma-icon">🎨</div>
-        <div class="sma-pillar-title">Art — 観察と創造</div>
-        <div class="sma-pillar-body">
-          絵・漫画・デザイン・工芸など地域の伝統工芸とも接続。色彩日本語（カラフル日本語）の感性がアートに宿る。
-          VICKEYキャラクターのビジュアルコミュニケーションが若者の創造性を刺激する。
-        </div>
-        <div class="sma-tags">
-          <span class="sma-tag">色彩日本語</span>
-          <span class="sma-tag">伝統工芸</span>
-          <span class="sma-tag">VICKEY</span>
-          <span class="sma-tag">ビジュアル思考</span>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="sma-connect">
-      <strong>3軸はすべて「本」「地域」「金融」とつながる</strong><br>
-      スポーツ選手の自伝・音楽家の評伝・アーティストの画集——物語は本に宿り、漢字タグで索引化され、地域金融とのNISA教育教材になる。
-      <div class="sma-connect-flow">
-        <span class="sma-flow-node">⚽ スポーツ体験</span>
-        <span class="sma-flow-arrow">+</span>
-        <span class="sma-flow-node">🎵 音楽体験</span>
-        <span class="sma-flow-arrow">+</span>
-        <span class="sma-flow-node">🎨 アート体験</span>
-        <span class="sma-flow-arrow">→</span>
-        <span class="sma-flow-node">📖 本・物語</span>
-        <span class="sma-flow-arrow">→</span>
-        <span class="sma-flow-node">🏦 地域金融 × NISA</span>
-        <span class="sma-flow-arrow">→</span>
-        <span class="sma-flow-node">🔄 地域循環</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="section">
   <p class="section-label">Key Partners — 主要パートナー候補</p>
   <div class="partner-grid">
     <div class="partner-card">
@@ -511,9 +281,9 @@
       <div class="partner-note">漢字タグインデックスAPIライセンス。デモ稼働中</div>
     </div>
     <div class="partner-card">
-      <div class="partner-type">業界団体</div>
-      <div class="partner-name">証券業協会</div>
-      <div class="partner-note">全国地域証券会社への展開スキーム。徳島発信</div>
+      <div class="partner-type">地域コミュニティ</div>
+      <div class="partner-name">ロータリークラブ・商工会・地銀</div>
+      <div class="partner-note">地域に根ざしたネットワーク。Zone 3 の横展開を支える草の根パートナー</div>
     </div>
   </div>
 </div>
@@ -526,52 +296,12 @@
       <div style="font-size:12px; color:var(--text2);">徳島合同証券 × Smart Life Styles。Zone 3 の実証開始</div>
     </div>
     <div class="card">
-      <div style="font-size:13px; font-weight:500; margin-bottom:5px;">② 証券業協会提案</div>
-      <div style="font-size:12px; color:var(--text2);">徳島発のスキームを業界全体の金融教育取り組みとして提案</div>
+      <div style="font-size:13px; font-weight:500; margin-bottom:5px;">② ロータリー・商工会・地銀へのアプローチ</div>
+      <div style="font-size:12px; color:var(--text2);">地域に根ざしたコミュニティ経由で Zone 3 モデルを草の根展開</div>
     </div>
     <div class="card">
       <div style="font-size:13px; font-weight:500; margin-bottom:5px;">③ 野村財団申請</div>
       <div style="font-size:12px; color:var(--text2);">2026年6月末締切。地域から業界全体へ広げる起点</div>
-    </div>
-  </div>
-</div>
-
-<div class="section" style="margin-top:3rem;">
-  <p class="section-label">Philosophy — Smart Life Styles™ の哲学</p>
-  <div class="phil-card">
-    <div class="phil-brand">Smart Life Styles™</div>
-    <div class="phil-divider-line"></div>
-    <div class="phil-main">
-      100点ではなく、<strong>1億点</strong>を目指す。<br>
-      数値よりも、<strong>感動</strong>を求める人へ。
-    </div>
-    <div class="phil-sub">
-      学校教育にスポーツ・音楽・アートが含まれている意味の再認識。
-      知識の積み重ねも大切だけれど、感性を磨き続けること——
-      それを続けることが「楽（PLAY）」につながる大事な考え方・行動・姿勢。
-    </div>
-    <div class="phil-kanji-row">
-      <div class="phil-kanji-block">
-        <div class="phil-kanji">楽</div>
-        <div class="phil-kanji-readings">RAKU · GAKU · TANO(SHII)</div>
-        <div class="phil-kanji-meaning">音楽 · 快楽 · 気楽——一文字に、知識・感性・継続のすべてが宿る</div>
-      </div>
-      <div class="phil-tagline-block">
-        <div class="phil-tagline">感動した人が、<br><span class="phil-accent">感動を生む人になる。</span></div>
-      </div>
-    </div>
-    <div class="phil-flow">
-      <span class="phil-node">⚽ スポーツ</span>
-      <span class="phil-arr">+</span>
-      <span class="phil-node">🎵 音楽</span>
-      <span class="phil-arr">+</span>
-      <span class="phil-node">🎨 アート</span>
-      <span class="phil-arr">→</span>
-      <span class="phil-node">📖 感じる・知る</span>
-      <span class="phil-arr">→</span>
-      <span class="phil-node">🔄 続ける</span>
-      <span class="phil-arr">→</span>
-      <span class="phil-node phil-node-play">楽 · PLAY</span>
     </div>
   </div>
 </div>
